@@ -1,7 +1,4 @@
-- name: bin_to_hex
-  args:
-    binary: "111110111"
 
-- name: hex_to_bin
+- name: convert_num
   args:
-    hex: "0xEFF"
+    dec: "123"

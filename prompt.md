@@ -8,9 +8,6 @@ mathRunner/
 ├── input.yaml            # user inputs
 └── scripts/              # all scripts live here
     ├── __init__.py
-    ├── add.py
-    ├── divide.py
-    ├── factorial.py
     └── bin_to_hex.py
 
 - Each script must be placed inside the `scripts/` folder with a filename matching the script’s purpose (e.g., `circle_area.py`).
@@ -34,6 +31,23 @@ mathRunner/
 ### Task:
 Generate a script named: `<SCRIPT_NAME>`
 It should: `<DESCRIPTION OF WHAT THE SCRIPT DOES>`
+The `result` it returns should be formatted correctly like following
+
+```python
+return (
+    f"dec : {value}\n"
+    f"hex : {hex(value).upper().replace('X', 'x')}\n"
+    f"bin : {bin(value)[2:]}"
+)
+```
+
+to generate output like this
+
+```bash
+dec : 3839
+hex : 0xEFF
+bin : 111011111111
+```
 
 Return only the complete script code, nothing else.
 

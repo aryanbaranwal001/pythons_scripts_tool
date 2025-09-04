@@ -57,7 +57,7 @@ def print_script_block(script_name, args, result):
 
     print(f"[ {CYAN_BOLD}{script_name}{RESET} ]")   # script name
     print(args_str)
-    print(f"Ans → {GREEN}{result}{RESET}")          # answer
+    print(f"{GREEN}{result}{RESET}")          # answer
     print("─────────────────────────\n")
 
 
