@@ -1,45 +1,64 @@
 import importlib
 import os
 import time
+import yaml
 
-INPUT_FILE = "input.txt"
+INPUT_FILE = "input.yaml"
 
 def read_input():
-    """Read script name and arguments from input.txt"""
+    """Read list of scripts from input.yaml"""
     if not os.path.exists(INPUT_FILE):
-        print("input.txt not found!")
-        return None, []
+        print("input.yaml not found!")
+        return []
 
-    with open(INPUT_FILE, "r") as f:
-        lines = [line.strip() for line in f if line.strip()]
+    try:
+        with open(INPUT_FILE, "r") as f:
+            data = yaml.safe_load(f)
+    except yaml.YAMLError as e:
+        print(f"Invalid YAML in {INPUT_FILE}: {e}")
+        return []
 
-    if not lines:
-        print("input.txt is empty!")
-        return None, []
+    if not isinstance(data, list):
+        print("input.yaml must contain a list of scripts")
+        return []
 
-    script_name = lines[0]  # first line = script name
-    args = lines[1:]        # rest = arguments
-    return script_name, args
+    return data
 
 def run_script(script_name, args):
-    """Dynamically import and run the script from scripts/"""
+    """Import and run a script from scripts/"""
     try:
         module = importlib.import_module(f"scripts.{script_name}")
     except ModuleNotFoundError:
-        print(f"Script '{script_name}' not found in scripts/")
-        return
+        return f"[Error] Script '{script_name}' not found."
 
     if not hasattr(module, "main"):
-        print(f"Script '{script_name}' does not have a main() function")
-        return
+        return f"[Error] Script '{script_name}' has no main() function."
 
     try:
-        module.main(args)
+        result = module.main(args)
+        return result
     except Exception as e:
-        print(f"Error while running {script_name}: {e}")
+        return f"[Error while running {script_name}: {e}]"
+
+def print_script_block(script_name, args, result):
+    """Format the output for each script"""
+
+    # ANSI color codes
+    CYAN_BOLD = "\033[96;1m"
+    GREEN = "\033[92m"
+    RESET = "\033[0m"
+
+    args_str = ", ".join([f"{k}={v}" for k, v in args.items()])
+
+    print(f"{CYAN_BOLD}{script_name}{RESET}")   # colored script name
+    print(f"Args: {args_str}")
+    print(f"Ans: {GREEN}{result}{RESET}")       # colored result only
+    print("─────────────────────────\n")
+
+
 
 def main():
-    print("Watching input.txt for changes... (Ctrl+C to stop)")
+    print("Watching input.yaml for changes... (Ctrl+C to stop)")
     last_mtime = None
 
     while True:
@@ -48,12 +67,15 @@ def main():
                 mtime = os.path.getmtime(INPUT_FILE)
                 if last_mtime is None or mtime != last_mtime:
                     last_mtime = mtime
-                    script_name, args = read_input()
-                    if script_name:
-                        print("\n--- Running script ---")
-                        run_script(script_name, args)
-                        print("--- Done ---\n")
-            time.sleep(0.5)
+                    os.system("clear")  # refresh screen
+                    print("========== Run ==========")
+                    scripts = read_input()
+                    for script in scripts:
+                        script_name = script.get("name")
+                        args = script.get("args", {})
+                        result = run_script(script_name, args)
+                        print_script_block(script_name, args, result)
+            time.sleep(0.1)
         except KeyboardInterrupt:
             print("\nStopped mathRunner.")
             break

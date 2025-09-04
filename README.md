@@ -13,7 +13,7 @@ A dynamic Python script execution system that watches for changes in `input.txt`
 
 1. Run the watcher:
    ```bash
-   python mathRunner.py
+   python3 mathRunner.py
    ```
 
 2. Edit `input.txt` with your desired script and arguments:
