@@ -48,11 +48,16 @@ def print_script_block(script_name, args, result):
     GREEN = "\033[92m"
     RESET = "\033[0m"
 
-    args_str = ", ".join([f"{k}={v}" for k, v in args.items()])
+    if args:
+        # find longest key length for alignment
+        max_key_len = max(len(k) for k in args.keys())
+        args_str = "\n".join([f"{k.ljust(max_key_len)} = {v}" for k, v in args.items()])
+    else:
+        args_str = "(none)"
 
-    print(f"{CYAN_BOLD}{script_name}{RESET}")   # colored script name
-    print(f"Args: {args_str}")
-    print(f"Ans: {GREEN}{result}{RESET}")       # colored result only
+    print(f"[ {CYAN_BOLD}{script_name}{RESET} ]")   # script name
+    print(args_str)
+    print(f"Ans → {GREEN}{result}{RESET}")          # answer
     print("─────────────────────────\n")
 
 
@@ -68,7 +73,7 @@ def main():
                 if last_mtime is None or mtime != last_mtime:
                     last_mtime = mtime
                     os.system("clear")  # refresh screen
-                    print("========== Run ==========")
+                    print("========== Run ==========\n")
                     scripts = read_input()
                     for script in scripts:
                         script_name = script.get("name")

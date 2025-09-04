@@ -1,17 +1,7 @@
-- name: add
-  args:
-    a: 3
-    b: 44
-
-- name: divide
-  args:
-    numerator: 47
-    denominator: 45
-
-- name: factorial
-  args:
-    n: 23    
-
 - name: bin_to_hex
   args:
     binary: "111110111"
+
+- name: hex_to_bin
+  args:
+    hex: "0xEFF"
