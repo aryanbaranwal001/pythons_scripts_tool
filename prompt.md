@@ -35,22 +35,24 @@ The `result` it returns should be formatted correctly like following
 
 ```python
 return (
-    f"dec : {value}\n"
-    f"hex : {hex(value).upper().replace('X', 'x')}\n"
-    f"bin : {bin(value)[2:]}"
+    f"name1 : {value1}\n"
+    f"name2 : {value2}\n"
+    f"name3 : {value3}"
 )
 ```
 
-to generate output like this
+inputs will be given in the yaml format like in the following
 
-```bash
-dec : 3839
-hex : 0xEFF
-bin : 111011111111
+```yaml
+- name: convert_num
+  args:
+    dec: "34"
 ```
 
-Return only the complete script code, nothing else.
+Make sure arguments have names
 
+- Return only the complete script code with its name, nothing else.
+- And also in the code, in the final return, don't return the arguements and just the final answer
 --------------------------------------------------
 
 

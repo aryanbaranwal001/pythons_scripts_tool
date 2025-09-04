@@ -1,4 +1,12 @@
 
 - name: convert_num
   args:
-    hex: "123"
+    dec: "34"
+    # hex: bin:
+
+- name: mod_inverse
+  args:
+    number: 3
+    modulus: 11
+
+
