@@ -1,4 +1,4 @@
 
 - name: convert_num
   args:
-    dec: "123"
+    hex: "123"
