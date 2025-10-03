@@ -8,9 +8,11 @@
 ![Move](https://img.shields.io/badge/Move-Smart%20Contracts-FF6B35?style=for-the-badge)
 ![Firebase](https://img.shields.io/badge/Firebase-Firestore-FFCA28?style=for-the-badge&logo=firebase)
 
-**A next generation prediction markets platform implementing continuous probability distributions on Aptos blockchain**
+**A next generation prediction markets platform implementing continuous probability distributions on Aptos Blockchain**
 
-[🚀 Live Demo](https://aptos-distribution-markets.vercel.app) • [📖 Documentation](./FIREBASE_DETAILED.md) • [🔗 Aptos Explorer](#)
+*Built on groundbreaking research from [Paradigm's Distribution Markets paper](https://www.paradigm.xyz/2024/12/distribution-markets)*
+
+[Live Demo](https://aptos-distribution-markets.vercel.app) • [📄 Research Paper](https://www.paradigm.xyz/2024/12/distribution-markets) • [📖 Documentation](./FIREBASE_DETAILED.md)
 
 </div>
 
@@ -34,12 +36,23 @@
 
 ## 🎯 Overview
 
-**Aptos Distribution Markets** is a cutting-edge prediction markets platform that implements **continuous probability distributions** for trading on future outcomes. Unlike traditional binary prediction markets, this platform allows traders to express nuanced beliefs across infinite outcome ranges using normal (Gaussian) distributions.
+**Mirae** is a cutting-edge prediction markets platform that implements **continuous probability distributions** for trading on future outcomes, based on [Paradigm's groundbreaking Distribution Markets research paper](https://www.paradigm.xyz/2024/12/distribution-markets). Unlike traditional binary prediction markets, this platform allows traders to express nuanced beliefs across infinite outcome ranges using normal (Gaussian) distributions.
+
+### 📄 **Research Foundation**
+
+This project is a complete implementation of the **Distribution Markets** concept introduced by Paradigm in December 2024. The research paper presents a novel approach to prediction markets that moves beyond binary outcomes to support continuous probability distributions, enabling more sophisticated and nuanced market predictions.
+
+**Key Research Contributions Implemented:**
+- **Continuous Case Markets**: Support for infinite outcome ranges rather than binary yes/no
+- **Normal Distribution Trading**: Mathematical framework for Gaussian distribution markets
+- **Liquidity Provision**: Advanced mechanisms for market makers and liquidity providers
+- **Price Discovery**: Sophisticated algorithms for continuous outcome pricing
 
 ### 🌟 What Makes It Special
 
 - **📈 Distribution Trading**: Trade on continuous probability distributions, not just binary outcomes
 - **🎯 Sophisticated Modeling**: Normal distribution parameters (mean, sigma) for precise market expression  
+- **📊 Research-Based**: Built on peer-reviewed academic research from Paradigm
 - **⚡ Aptos Integration**: Built on Aptos blockchain for fast, low-cost transactions
 - **🎨 Modern UI/UX**: Professional interface with real-time charts and interactive trading
 - **🔒 Enterprise Security**: Rate limiting, input validation, and comprehensive error handling
@@ -303,15 +316,19 @@ interface Market {
 
 ### 🔧 **Move Implementation**
 
-The platform implements sophisticated distribution markets using Move smart contracts on Aptos:
+The platform implements sophisticated distribution markets using Move smart contracts on Aptos, directly based on the mathematical framework presented in [Paradigm's Distribution Markets research paper](https://www.paradigm.xyz/2024/12/distribution-markets):
 
 ```move
 /// Distribution Markets - Continuous Case Implementation
 /// Based on the paper: https://www.paradigm.xyz/2024/12/distribution-markets
+/// 
+/// This module implements a prediction market for continuous probability distributions,
+/// specifically focusing on normal (Gaussian) distributions. Traders can express beliefs
+/// about the likelihood of different outcomes across an infinite range.
 module distribution_markets::distribution_markets {
     // Core market structures and trading logic
     // Implements normal distribution probability markets
-    // Supports continuous outcome ranges
+    // Supports continuous outcome ranges as defined in Paradigm research
 }
 ```
 
@@ -327,11 +344,21 @@ module distribution_markets::distribution_markets {
 
 ### 📈 **Distribution Mathematics**
 
+The smart contracts implement the mathematical framework from the Paradigm research paper:
+
 ```move
 // Normal distribution probability density function
+// Implements the continuous case mathematics from Paradigm's paper
 public fun normal_pdf(x: u64, mean: u64, std_dev: u64): u64 {
     // Implements: (1/σ√(2π)) * e^(-½((x-μ)/σ)²)
+    // As defined in the Distribution Markets research paper
     math_utils::calculate_normal_pdf(x, mean, std_dev)
+}
+
+// Market pricing based on distribution parameters
+public fun calculate_market_price(mean: u64, sigma: u64, lambda: u64): u64 {
+    // Pricing mechanism from Paradigm's continuous case framework
+    math_utils::distribution_market_pricing(mean, sigma, lambda)
 }
 ```
 
@@ -708,10 +735,19 @@ aptos_distribution_markets/
 
 ## 🙏 Acknowledgments
 
-- **[Paradigm](https://www.paradigm.xyz/)** - Distribution Markets research paper
-- **[Aptos Labs](https://aptoslabs.com/)** - Blockchain infrastructure and tooling
+- **[Paradigm](https://www.paradigm.xyz/)** - For the groundbreaking [Distribution Markets research paper](https://www.paradigm.xyz/2024/12/distribution-markets) that forms the theoretical foundation of this platform
+- **[Aptos Labs](https://aptoslabs.com/)** - Blockchain infrastructure and Move language tooling
 - **[Firebase](https://firebase.google.com/)** - Database and backend services
 - **[Next.js](https://nextjs.org/)** - React framework and development tools
+
+### 📄 **Research Citation**
+
+This project implements the concepts presented in:
+> **Distribution Markets**  
+> *Paradigm Research, December 2024*  
+> Available at: https://www.paradigm.xyz/2024/12/distribution-markets
+
+The mathematical framework, continuous case implementation, and market mechanisms are directly based on this seminal research in prediction market design.
 
 ---
 
