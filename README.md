@@ -1,4 +1,4 @@
-# 🎯 Aptos Distribution Markets
+# Mirae
 
 <div align="center">
 
@@ -8,7 +8,7 @@
 ![Move](https://img.shields.io/badge/Move-Smart%20Contracts-FF6B35?style=for-the-badge)
 ![Firebase](https://img.shields.io/badge/Firebase-Firestore-FFCA28?style=for-the-badge&logo=firebase)
 
-**A sophisticated prediction markets platform implementing continuous probability distributions on Aptos blockchain**
+**A next generation prediction markets platform implementing continuous probability distributions on Aptos blockchain**
 
 [🚀 Live Demo](https://aptos-distribution-markets.vercel.app) • [📖 Documentation](./FIREBASE_DETAILED.md) • [🔗 Aptos Explorer](#)
 
