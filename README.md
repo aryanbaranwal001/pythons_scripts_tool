@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Aptos Distribution Markets](./public/aptos.png)
+![Aptos Distribution Markets](https://img.shields.io/badge/Aptos-Distribution%20Markets-00D4AA?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K)
 ![Next.js](https://img.shields.io/badge/Next.js-15.5.3-black?style=for-the-badge&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
 ![Move](https://img.shields.io/badge/Move-Smart%20Contracts-FF6B35?style=for-the-badge)
@@ -10,9 +10,7 @@
 
 **A next generation prediction markets platform implementing continuous probability distributions on Aptos Blockchain**
 
-*Built on groundbreaking research from [Paradigm's Distribution Markets paper](https://www.paradigm.xyz/2024/12/distribution-markets)*
-
-[Live Demo](https://aptos-distribution-markets.vercel.app) • [📄 Research Paper](https://www.paradigm.xyz/2024/12/distribution-markets) • [📖 Documentation](./FIREBASE_DETAILED.md)
+*Built on research paper from [Paradigm's Distribution Markets paper](https://www.paradigm.xyz/2024/12/distribution-markets)*
 
 </div>
 
@@ -20,6 +18,7 @@
 
 ## 📋 Table of Contents
 
+- [  Live Demo](#-livedemo)
 - [🎯 Overview](#-overview)
 - [✨ Key Features](#-key-features)
 - [🏗️ Architecture](#️-architecture)
@@ -33,6 +32,10 @@
 - [🤝 Contributing](#-contributing)
 
 ---
+### Live Demo
+
+[Live Demo](https://aptos-distribution-markets.vercel.app)
+
 
 ## 🎯 Overview
 
