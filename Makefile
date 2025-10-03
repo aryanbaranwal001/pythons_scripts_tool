@@ -1,8 +1,6 @@
-.PHONY: commit push
+.PHONY: commit
 
 commit:
 	git add .
-	git commit --allow-empty -m "readme"
-
-push: commit
+	git commit -m "readme"
 	git push
