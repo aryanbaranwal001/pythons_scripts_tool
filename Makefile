@@ -1,10 +1,8 @@
 .PHONY: commit push
 
-# Commit message is the contents of README.md
-
 commit:
 	git add .
-	git commit -m "reamde"
+	git commit --allow-empty -m "readme"
 
 push: commit
-	git push 
+	git push
